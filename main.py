@@ -1,4 +1,4 @@
-# tic tac toe
+# tic-tac-toe game
 """
 [x]: draw a board
 [x]: input player Name
@@ -83,7 +83,7 @@ def main():
     print("Welcome to sunny's tic tac toe game.!!")
     player_one = input("Enter player 1 name: ")
     player_two = input("Enter player 2 name: ")
-    print(f"Thank you for joining Mr. {player_one} and Mr. {player_two}")
+    print(f"Thank you for joining Mr./Miss. {player_one} and Mr./Miss. {player_two}")
     print(instructions)
     print(f"Mr. {player_one}'s sign is - X")
     print(f"Mr. {player_two}'s sign is - O")
