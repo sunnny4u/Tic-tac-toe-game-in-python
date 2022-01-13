@@ -1,4 +1,4 @@
-# tic-tac-toe game
+# tic tac toe
 """
 [x]: draw a board
 [x]: input player Name
@@ -25,22 +25,18 @@ This will be our tic tac toe board
 
 sign_dict = [[], [], [], [], [], [], [], [], []]
 
-
-def len_check(x):
-    if len(x) == 1:
-        return x[0]
-    else:
-        return " "
+for i in range(9):
+    sign_dict[i].append(' ')
 
 
 def print_board(sign_dict):
     board = f"""
 
-   {len_check(sign_dict[0])} | {len_check(sign_dict[1])} | {len_check(sign_dict[2])}
+   {sign_dict[0][0]} | {sign_dict[1][0]} | {sign_dict[2][0]}
   ---|---|---
-   {len_check(sign_dict[3])} | {len_check(sign_dict[4])} | {len_check(sign_dict[5])}
+   {sign_dict[3][0]} | {sign_dict[4][0]} | {sign_dict[5][0]}
   ---|---|---
-   {len_check(sign_dict[6])} | {len_check(sign_dict[7])} | {len_check(sign_dict[8])}
+   {sign_dict[6][0]} | {sign_dict[7][0]} | {sign_dict[8][0]}
 
   """
     print(board)
@@ -69,21 +65,23 @@ def result_calculation(sign_dict, player_one, player_two):
             sign_dict[2][0] == sign_dict[4][0] == sign_dict[6][0] == 'X' or sign_dict[6][0] == sign_dict[7][0] == \
             sign_dict[8][0] == 'X' or sign_dict[0][0] == sign_dict[3][0] == sign_dict[6][0] == 'X':
         print(f'Congratulations {player_one}. You WON.!!')
+        quit('Thank you both for joining')
     elif sign_dict[0][0] == sign_dict[1][0] == sign_dict[2][0] == 'O' or sign_dict[1][0] == sign_dict[4][0] == \
             sign_dict[7][0] == 'O' or sign_dict[0][0] == sign_dict[4][0] == sign_dict[8][0] == 'O' or sign_dict[2][0] == \
             sign_dict[5][0] == sign_dict[8][0] == 'O' or sign_dict[3][0] == sign_dict[4][0] == sign_dict[5][0] == 'O' or \
             sign_dict[2][0] == sign_dict[4][0] == sign_dict[6][0] == 'O' or sign_dict[6][0] == sign_dict[7][0] == \
             sign_dict[8][0] == 'O' or sign_dict[0][0] == sign_dict[3][0] == sign_dict[6][0] == 'O':
         print(f'Congratulations {player_two}. You WON.!!')
+        quit('Thank you both for joining')
     else:
-        print("This is a tie..!! Nobody won. Play Again.")
+        return
 
 
 def main():
     print("Welcome to sunny's tic tac toe game.!!")
     player_one = input("Enter player 1 name: ")
     player_two = input("Enter player 2 name: ")
-    print(f"Thank you for joining Mr./Miss. {player_one} and Mr./Miss. {player_two}")
+    print(f"Thank you for joining Mr./Mrs. {player_one} and Mr./Mrs. {player_two}")
     print(instructions)
     print(f"Mr. {player_one}'s sign is - X")
     print(f"Mr. {player_two}'s sign is - O")
@@ -92,12 +90,15 @@ def main():
     for i in range(0, 9):
         if i % 2 == 0:
             index = take_input(player_one)
-            sign_dict[index].append('X')
+            sign_dict[index][0] = 'X'
         else:
             index = take_input(player_two)
-            sign_dict[index].append('O')
+            sign_dict[index][0] = 'O'
+
         print_board(sign_dict)
-    result_calculation(sign_dict, player_one, player_two)
+        result_calculation(sign_dict, player_one, player_two)
+
+    print("This is a tie..!! Nobody won. Play Again.")
 
 
 main()
