@@ -21,9 +21,9 @@ The board is printed again after every move. If you pick a spot that's already t
 You need Python 3.6 or newer (the code uses f-strings). No external packages.
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
-python tic_tac_toe.py
+git clone https://github.com/sunnny4u/Tic-tac-toe-game-in-python.git
+cd Tic-tac-toe-game-in-python
+python main.py
 ```
 
 ## Example
